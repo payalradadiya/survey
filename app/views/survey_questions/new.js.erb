@@ -16,6 +16,6 @@ console.log("<%= question_type.inspect %>");
 	$('#new_survey_question_modal').modal();
 
 <% elsif params[:question_type].eql?('dropdown') %>
-	$('#survey_question_popup').html("<%= j render 'survey_question_text' %>");
+	$('#survey_question_popup').html("<%= j render 'survey_question_dropdown' %>");
 	$('#new_survey_question_modal').modal();
 <% end %>

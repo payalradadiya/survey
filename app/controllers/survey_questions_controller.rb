@@ -20,6 +20,6 @@ class SurveyQuestionsController < ApplicationController
 
 	private
 	def survey_question_params
-		params.require(:survey_question).permit(:id, :question_title, :question_hint, :is_required, :order, :survey_type_id, :date, :date_separator,:rating,:rating_number)
+		params.require(:survey_question).permit(:id, :question_title, :question_hint, :is_required, :order, :survey_type_id, :date, :date_separator,:rating,:rating_number, :choice)
 	end
 end
