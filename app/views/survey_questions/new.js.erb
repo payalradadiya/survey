@@ -1,22 +1,20 @@
-alert("hiii");
-<% if question_type.short_string? %>
-alert("byy");
+console.log("<%= question_type.inspect %>");
+<% if params[:question_type].eql?('short_string') %>
 	$('#survey_question_popup').html("<%= j render 'survey_question_string' %>");
 	$('#new_survey_question_modal').modal();
-<% elsif question_type.long_text? %>
-alert('cuuu');
+<% elsif params[:question_type].eql?('long_text') %>
+
 	$('#survey_question_popup').html("<%= j render 'survey_question_text' %>");
 	$('#new_survey_question_modal').modal();
-<% elsif question_type.date? %>
-alert('cuuu');
+<% elsif params[:question_type].eql?('date') %>
+
 	$('#survey_question_popup').html("<%= j render 'survey_question_text' %>");
 	$('#new_survey_question_modal').modal();
-<% elsif question_type.rating? %>
-alert('cuuu');
+<% elsif params[:question_type].eql?('rating') %>
+
 	$('#survey_question_popup').html("<%= j render 'survey_question_text' %>");
 	$('#new_survey_question_modal').modal();
-<% elsif question_type.dropdown? %>
-alert('cuuu');
+<% elsif params[:question_type].eql?('dropdown') %>
 	$('#survey_question_popup').html("<%= j render 'survey_question_text' %>");
 	$('#new_survey_question_modal').modal();
 <% end %>
