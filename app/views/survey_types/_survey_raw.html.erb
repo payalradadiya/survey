@@ -1,0 +1,9 @@
+<div id="js-survey-raw-<%= survey_type.id %>">
+	<div class="add_survay_que_box">
+	<br><br>
+		<%= survey_type.title %>
+		<br><br><br><br>
+		<%= link_to "Add Questions", survey_questions_path(survey_type_id: survey_type.id), class: 'btn btn-default' %>
+		<%#= link_to 'New Photo Album', new_photo_album_path, remote: true, class: 'btn btn-primary btn-lg' %>
+	</div>
+</div>

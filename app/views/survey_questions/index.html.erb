@@ -1,0 +1,13 @@
+<div class="col-sm-12 margin-top-10">
+	<div class="leftside_admin_btn">
+		<%= link_to QuestionType.control_types.key(0).titlecase, new_survey_question_path(survey_type_id: params[:survey_type_id]), remote: true, class: 'btn btn-default' %><br><br>
+		<%= link_to QuestionType.control_types.key(1).titlecase, new_survey_question_path(survey_type_id: params[:survey_type_id]), remote: true, class: 'btn btn-default' %><br><br>
+		<%= link_to QuestionType.control_types.key(2).titlecase, new_survey_question_path(survey_type_id: params[:survey_type_id]), remote: true, class: 'btn btn-default' %><br><br>
+		<%= link_to QuestionType.control_types.key(3).titlecase, new_survey_question_path(survey_type_id: params[:survey_type_id]), remote: true, class: 'btn btn-default' %><br><br>
+		<%= link_to QuestionType.control_types.key(4).titlecase, new_survey_question_path(survey_type_id: params[:survey_type_id]), remote: true, class: 'btn btn-default' %>
+	</div>
+</div>
+
+<% content_for :body_area do %>
+  <div id="survey_question_popup"></div>
+<% end %>

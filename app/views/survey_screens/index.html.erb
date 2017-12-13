@@ -1,0 +1,26 @@
+<div class="aside-inner">
+	<br>
+	<br><br>
+	<div class="alert alert-success" style="width: 367px;">
+		<%= link_to 'Welcome Screen', new_survey_screen_path(survey_type_id: params[:survey_type_id]), remote: true %>
+	</div>
+	<div class="alert alert-danger" style="width: 367px; height: 400px;">
+
+
+	<!-- 	<ul class="column">
+			<li class="alert alert-dark" style="width: 50px; height: 10px;">String</li>
+			<li class="alert alert-dark" style="width: 50px; height: 10px;">Date</li>
+			<li class="alert alert-dark" style="width: 50px; height: 10px;">Dropdown</li>
+			<li class="alert alert-dark" style="width: 50px; height: 10px;">Date</li>
+			<li class="alert alert-dark" style="width: 50px; height: 10px;">Rating</li>
+		</ul> -->
+	</div>
+	<div class="alert alert-info" style="width: 367px;">
+		Thank You
+	</div>
+</div>
+
+<% content_for :body_area do %>
+  <div id="survey_screen_popup"></div>
+<% end %>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  screen_type: 1
+  short_text: MyString
+  long_text: MyText
+  button_text: MyString
+  survey_type: one
+
+two:
+  screen_type: 1
+  short_text: MyString
+  long_text: MyText
+  button_text: MyString
+  survey_type: two

@@ -1,0 +1,21 @@
+<br><br>
+<div class="row">
+	<div class="col-sm-2 col-md-2">
+		<div class="create_platform_box">
+			<br><br>
+			<%= link_to 'Add Survey', new_survey_type_path, remote: true, class: 'btn btn-primary' %>
+			<div class="create_platform_label">
+				<p>Create a new Survey</p>
+		  </div>
+		 </div>
+	</div>
+	<div class="col-sm-2 col-md-2">
+		<%= render partial: 'survey_types/survey_raw', collection: survey_types, as: :survey_type %>
+	</div>
+</div>
+
+
+<% content_for :body_area do %>
+  <div id='survey_popup'></div>
+<% end %>
+</div>
