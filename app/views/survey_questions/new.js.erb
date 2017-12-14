@@ -5,7 +5,7 @@ console.log("<%= question_type.inspect %>");
 
 <% elsif params[:question_type].eql?('long_text') %>
 	$('#survey_question_popup').html("<%= j render 'survey_question_text' %>");
-	$('#new_survey_question_text_modal').modal();
+	$('#new_survey_question_modal').modal();
 
 <% elsif params[:question_type].eql?('date') %>
 	$('#survey_question_popup').html("<%= j render 'survey_question_date' %>");
