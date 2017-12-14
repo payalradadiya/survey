@@ -1,4 +1,3 @@
-console.log("<%= question_type.inspect %>");
 <% if params[:question_type].eql?('short_string') %>
 	$('#survey_question_popup').html("<%= j render 'survey_question_string' %>");
 	$('#new_survey_question_modal').modal();
