@@ -1,3 +1,4 @@
 <% if survey_question.persisted? %>
 	$('#new_survey_question_modal').modal('hide');
+	$('#question_string').append("<%= j render partial: '/survey_questions/survey_string_raw',locals: {survey_question: survey_question} %>");
 <% end %>
