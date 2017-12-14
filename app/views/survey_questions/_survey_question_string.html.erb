@@ -15,7 +15,7 @@
           <div class="modal-body">
             <div class="form-group">
             	<%= f.label :question_title, 'Question', class: 'control-label' %>
-        			<%= f.text_field :question_title, class: 'form-control' %>
+        			<%= f.text_field :question_title, class: 'form-control', id: "question" %>
             </div>
 
             <div class="form-group">
@@ -39,9 +39,22 @@
           <% end %>
         </div>
         <div class="col-md-6">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <div class="jumbotron" id="question_space">
+              <div class="question"></div>
+            </div>
+          </div>
+          
           <%#= render partial: 'survey_questions/survey_string_raw', collection: survey_questions, as: :survey_question %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  $("#question").keyup(function(){
+    console.log($("#question").val());
+    $(".question").empty().append($('#question').val());
+  });
+</script>
