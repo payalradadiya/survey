@@ -1,5 +1,11 @@
 <div id="survey_question-<%= survey_question.id %>">
-	<div class="modal-header" id="new-style">
-		<%= survey_question.question_title %>
-	</div><br>
+	<ul id="draggablePanelList">
+		<div class="panel panel-danger" id="new-style">
+			<div class="panel-heading ui-sortable-handle">You can drag this panel</div>
+				<div class="panel-body">
+					<%= survey_question.order %>
+					<%= survey_question.question_title %>
+				</div>
+		</div>
+	</ul>
 </div>
