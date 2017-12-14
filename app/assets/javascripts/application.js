@@ -13,5 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
+//= require jquery.rateyo.min.js
 //= require bootstrap-sprockets
 //= require_tree .
