@@ -1,0 +1,64 @@
+<div class="modal fade" id="new_welcome_screen_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col-md-6">
+        	<%= form_for survey_screen,remote: true  do |f| %>
+            <%= f.hidden_field :survey_type_id , value: params[:survey_type_id]%>
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Welcome Screen</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <%= f.label :screen_type, 'Screen Type', class: 'control-label' %>
+                <%= f.select :screen_type,SurveyScreen.screen_types.keys, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+              	<%= f.label :long_text, 'Long Text', class: 'control-label' %>
+          			<%= f.text_field :long_text, class: 'form-control', id: "welcome_text" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :short_text, 'Short Text', class: 'control-label' %>
+                <%= f.text_field :short_text, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :button_text, 'Button Text', class: 'control-label' %>
+                <%= f.text_field :button_text, class: 'form-control',id: "button_text" %>
+                <!-- <div class="button general full enabled hover-effect" style="display: inline-block;">start</div> -->
+                <!-- class: "button general full enabled hover-effect" -->
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit "Submit", class: 'btn btn-primary', remote: true %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <div class="jumbotron" id="rating_space">
+                <div class="welcome_text"></div>
+                <div class="button_text general full enabled hover-effect active" style="display: inline-block;"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $("#welcome_text").keyup(function(){
+    $(".welcome_text").empty().append($("#welcome_text").val());  
+  });
+  $("#button_text").keyup(function(){
+    $(".button_text").empty().append($("#button_text").val());
+  });
+</script>
