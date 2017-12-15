@@ -237,6 +237,9 @@ body {
   top: 75px;
 }
 #new-style{
-  background-color: #ccc;
   border-bottom: 3px solid #e5e5e5;
 }
+#draggablePanelList .panel-heading {
+  cursor: move;
+}
+
