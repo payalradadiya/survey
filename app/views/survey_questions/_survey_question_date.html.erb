@@ -1,56 +1,86 @@
 <div class="modal fade" id="new_survey_question_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-    	<%= form_for survey_question, remote: true do |f| %>
-        <%#= form_tag("/duration_stat", method: "get", remote: true) do %>
-        <%= f.hidden_field :survey_type_id , value: params[:survey_type_id]%>
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Date</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-        	<%= f.label :question_title, 'Question', class: 'control-label' %>
-    			<%= f.text_field :question_title, class: 'form-control' %>
-        </div>
+      <div class="row">
+        <div class="col-md-6">
+        	<%= form_for survey_question, remote: true do |f| %>
+            <%#= form_tag("/duration_stat", method: "get", remote: true) do %>
+            <%= f.hidden_field :survey_type_id , value: params[:survey_type_id]%>
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Date</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+              	<%= f.label :question_title, 'Question', class: 'control-label' %>
+          			<%= f.text_field :question_title, class: 'form-control', id: "date_question" %>
+              </div>
 
-        <div class="form-group">
-          <%= f.label :question_hint, 'Hint', class: 'control-label' %>
-          <%= f.text_field :question_hint, class: 'form-control' %>
+              <div class="form-group">
+                <%= f.label :question_hint, 'Hint', class: 'control-label' %>
+                <%= f.text_field :question_hint, class: 'form-control' %>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-6 form-group">
+                  <%= f.label :date, 'Date Format', class: 'control-label' %>
+                  <%= f.select :date,options_for_select([['MMDDYYYY','MM-DD-YYYY'],['DDMMYYYY','DD-MM-YYYY'],['YYYYMMDD','YYYY-MM-DD']]), class: 'form-control', id:  
+                  "survey_question_date" %>
+                </div>
+                
+                <div class="col-md-6 form-group">
+                  <%= f.label :date_separator, 'Date Format', class: 'control-label' %>
+                  <%= f.select :date_separator, SurveyQuestion.date_separators.keys, class: 'form-control' , id: "question_date_separator" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :is_required, "Required",class: 'control-label' %>&nbsp;&nbsp;
+                <label class="switch-left">
+                  <%= f.check_box :is_required %>
+                  <span></span>
+                </label>
+              </div>
+             
+
+              <div class="form-group">
+                <%#= f.label question_type.control_type, 'Hint', class: 'control-label' %>
+                <%#= f.text_field question_type.control_type, class: 'form-control' %>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit "Submit", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
         </div>
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <%= f.label :date, 'Date Format', class: 'control-label' %>
-            <%= f.select :date, SurveyQuestion.dates.keys, class: 'form-control' %>
+        <div class="col-md-6">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <div class="jumbotron" id="question_space">
+              <div class="date_question"></div>
+              <div id="date_format"></div>
+              <div id="date_format_separator"></div>
+            </div>
           </div>
-          
-          <div class="col-md-6 form-group">
-            <%= f.label :date_separator, 'Date Format', class: 'control-label' %>
-            <%= f.select :date_separator, SurveyQuestion.date_separators.keys, class: 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= f.label :is_required, "Required",class: 'control-label' %>&nbsp;&nbsp;
-          <label class="switch-left">
-            <%= f.check_box :is_required %>
-            <span></span>
-          </label>
-        </div>
-       
-
-        <div class="form-group">
-          <%#= f.label question_type.control_type, 'Hint', class: 'control-label' %>
-          <%#= f.text_field question_type.control_type, class: 'form-control' %>
         </div>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Submit", class: 'btn btn-primary' %>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>
+<script>
+  $("#date_question").keyup(function(){
+    // console.log($("#date_question").val());
+    $(".date_question").empty().append($('#date_question').val());
+    console.log($("#survey_question_date").val());
+
+    var date = $("#survey_question_date").val();
+    var saperator = $("#survey_question_date_separator").val();
+    var complete_date = date.replace(/-/g, saperator);
+    document.getElementById("date_format").innerHTML = complete_date;
+
+  });
+</script>
