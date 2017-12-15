@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213132136) do
+ActiveRecord::Schema.define(version: 20171215125758) do
+
+  create_table "participant_surveys", force: :cascade do |t|
+    t.integer "survey_type_id"
+    t.integer "survey_question_id"
+    t.string "survey_question_answer"
+    t.string "survey_option_answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_question_id"], name: "index_participant_surveys_on_survey_question_id"
+    t.index ["survey_type_id"], name: "index_participant_surveys_on_survey_type_id"
+  end
 
   create_table "question_types", force: :cascade do |t|
     t.string "name"
@@ -28,7 +39,7 @@ ActiveRecord::Schema.define(version: 20171213132136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "question_type_id"
-    t.integer "date"
+    t.string "date"
     t.integer "date_separator"
     t.integer "rating"
     t.integer "rating_number"

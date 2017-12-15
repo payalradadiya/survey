@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :survey_questions
   resources :question_types
   resources :survey_screens
+  resources :participant_surveys
 end
