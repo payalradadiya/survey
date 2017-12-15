@@ -1,11 +1,23 @@
-<div id="survey_question-<%= survey_question.id %>">
-	<ul id="draggablePanelList">
-		<div class="panel panel-danger" id="new-style">
-			<div class="panel-heading ui-sortable-handle">You can drag this panel</div>
-				<div class="panel-body">
-					<%= survey_question.order %>
-					<%= survey_question.question_title %>
-				</div>
-		</div>
-	</ul>
+<div class="portlets-wrapper">
+ <div class="row">
+  <div id="portlet-1" data-toggle="portlet" class="col-lg-12">
+   	<div id="js-survey-question-raw-<%= survey_question.id %>" class="panel panel-default" draggable="true">
+      <div class="panel-heading portlet-handler"></div>
+      <div class="panel-wrapper">
+        <div class="panel-body" draggable="true">
+        	<%= survey_question.order %>
+          <%= survey_question.question_title %>
+        </div>
+      </div>
+   	</div>
+   </div>
 </div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#js-survey-question-raw-<%= survey_question.id %>" ).draggable();
+    $( "#js-survey-question-raw-<%= survey_question.id %>" ).droppable();
+  } );
+  </script>
+
